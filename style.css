@@ -5,9 +5,18 @@
 body{
     display: flex;
     flex-direction: column;
+}
+
+/*---------CONTAINER--------*/
+.content{
+    display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 200px;
+
 }
+
+
 
 /*--------GRID----------*/
 
@@ -16,11 +25,11 @@ body{
     flex-wrap: wrap; /* Wrap the items onto multiple lines */
     height: 500px;
     width: 500px;
-    padding: 200px;
 }
 
 .grid-squares {
     background-color: lightgray;
     border: 1px solid gray;
     box-sizing: border-box; /* Include borders in width/height */
+    border-radius: 1.8mm;
 }

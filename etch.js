@@ -1,5 +1,5 @@
 const container = document.querySelector('.grid');
-const defaultSquares = 31
+const defaultSquares = 8;
 
 function getSquareSize(sqrs){
     const gridSize = sqrs*sqrs;
