@@ -9,6 +9,21 @@
 </head>
 <body>
     <div class="content">
+        <div class="controls">
+            <div class="grid-size">
+                <p>Pick a grid-size:</p>
+                <input type="range" id="numOfBoxes" min="2" max="30" step="1" value="8" />
+                <p>Grid selected:</p>
+            </div>
+            <div class="color">
+                <p>Pick a color</p>
+                <input type="color" id="boxColor">
+            </div>
+            <div class="draw-toggle">
+                <p>click to draw</p>
+            </div>
+            <button class="clear">clear board?</button>
+        </div>
         <div class="grid"></div>
     </div>
     

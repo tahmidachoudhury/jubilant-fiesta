@@ -11,8 +11,9 @@ body{
 .content{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     padding-top: 200px;
+
 
 }
 
@@ -32,4 +33,9 @@ body{
     border: 1px solid gray;
     box-sizing: border-box; /* Include borders in width/height */
     border-radius: 1.8mm;
+}
+
+/*---------CONTROLS--------*/
+.controls{
+    text-align: center;
 }

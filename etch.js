@@ -1,5 +1,11 @@
-const container = document.querySelector('.grid');
+const grid = document.querySelector('.grid');
+const inputSize = document.getElementById('numOfBoxes');
+const displaySize = document.querySelector('.grid-size');
+const displaygridSize = document.createElement('p');
+displaySize.appendChild(displaygridSize)
 const defaultSquares = 8;
+
+
 
 function getSquareSize(sqrs){
     const gridSize = sqrs*sqrs;
@@ -15,10 +21,19 @@ function buildGrid(squares){
             gridElement.classList.add('grid-squares');
             gridElement.style.height = `${getSquareSize(squares)}px`;
             gridElement.style.width = `${getSquareSize(squares)}px`;
-            container.appendChild(gridElement);
+            grid.appendChild(gridElement);
         }
     }    
 }
 
-buildGrid(defaultSquares)
+inputSquareSize = function(e){
+    sqrSize = e.target.value;
+    displaygridSize.textContent = `${sqrSize}x${sqrSize}`;
+}
+
+inputSize.addEventListener('input', inputSquareSize);
+
+buildGrid(defaultSquares);
+
+
 
