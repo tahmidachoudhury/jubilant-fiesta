@@ -24,6 +24,7 @@ function buildGrid(squares){
             gridElement.classList.add('grid-squares');
             gridElement.style.height = `${getSquareSize(squares)}px`;
             gridElement.style.width = `${getSquareSize(squares)}px`;
+            startDrawing(gridElement);
             grid.appendChild(gridElement);
         }
     }    
@@ -66,6 +67,15 @@ const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', clearScreen);
 //-----------------------------------------------------
 
+
+//draw!
+function startDrawing(gSquare){
+    const color = document.getElementById('boxColor');
+    gSquare.addEventListener('mouseout', function(){
+        gSquare.style.backgroundColor = color.value;
+    })
+}
+//----------------------------------------------
 
 
 
