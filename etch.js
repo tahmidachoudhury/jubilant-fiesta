@@ -5,7 +5,7 @@ const displaySize = document.querySelector('.grid-size');
 const displaygridSize = document.createElement('p');
 displaySize.appendChild(displaygridSize);
 const defaultSquares = 8;
-displaygridSize.textContent = `${defaultSquares}x${defaultSquares}`;
+displaygridSize.textContent = `${defaultSquares} x ${defaultSquares}`;
 
 
 
@@ -48,7 +48,7 @@ function removeGrid(){
 //changes grid size to input---------------------------
 inputSquareSize = function(e){
     sqrSize = e.target.value;
-    displaygridSize.textContent = `${sqrSize}x${sqrSize}`;
+    displaygridSize.textContent = `${sqrSize} x ${sqrSize}`;
     removeGrid();
     buildGrid(Number(inputSize.value));
 }
@@ -71,7 +71,7 @@ clearButton.addEventListener('click', clearScreen);
 //draw!
 function startDrawing(gSquare){
     const color = document.getElementById('boxColor');
-    gSquare.addEventListener('mouseout', function(){
+    gSquare.addEventListener('mouseenter', function(){
         gSquare.style.backgroundColor = color.value;
     })
 }
