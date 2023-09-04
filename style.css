@@ -65,9 +65,6 @@ p{
     /*padding: 10px;*/
 }
 
-.color{
-    padding: 8px;
-}
 
 .grid-size{
     padding: 8px;
@@ -82,5 +79,37 @@ p{
 
 .draw-toggle{
     margin: 10px;
+}
 
+
+/*-------------COLOR OPTIONS----------------*/
+#boxColor{
+    border-radius: 1.8mm;
+    height: 30px;
+    width: 30px;
+}
+
+.color{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.options{
+    display: flex;
+    gap: 8px;
+}
+
+.highlight{
+    transform: scale(1.1);
+    border-color: #0080ff;
+    box-shadow: 0 0 10px #0080ff;
+}
+
+.options button{
+    margin: 0;
+    padding: 5px;
+    font-family: 'Lucida Console', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

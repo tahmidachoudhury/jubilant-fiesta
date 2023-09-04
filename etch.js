@@ -114,3 +114,10 @@ function controlsOn(e){
 window.addEventListener('keydown', controlsOn);
 //-----------------------------------------------
 
+//color options ---------------------------------
+let highlightOn = false;
+colorOptions = document.querySelector('.options');
+colorOptions.addEventListener('click', function(e){
+    if(e.target.classList.contains('button')) e.target.classList.add('highlight');  
+    //if(e.target.classList.length == 3) e.target.classList.remove('highlight');
+})
