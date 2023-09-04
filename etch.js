@@ -5,6 +5,8 @@ const displaySize = document.querySelector('.grid-size');
 const displaygridSize = document.createElement('p');
 displaySize.appendChild(displaygridSize);
 const defaultSquares = 8;
+const color = document.getElementById('boxColor');
+let drawingOn = false;
 displaygridSize.textContent = `${defaultSquares} x ${defaultSquares}`;
 
 
@@ -68,14 +70,47 @@ clearButton.addEventListener('click', clearScreen);
 //-----------------------------------------------------
 
 
-//draw!
-function startDrawing(gSquare){
-    const color = document.getElementById('boxColor');
-    gSquare.addEventListener('mouseenter', function(){
-        gSquare.style.backgroundColor = color.value;
-    })
+//draw!-----------------------------------------------
+function hover(e){  
+    if (drawingOn){
+        e.target.style.backgroundColor = color.value;
+    }  
 }
+
+function startDrawing(gSquare){
+    gSquare.addEventListener('mouseenter', hover);
+    gSquare.addEventListener('mousedown', () => drawingOn = true);
+    gSquare.addEventListener('mouseup', () => drawingOn = false);
+    if (drawingOn){
+        gSquare.style.backgroundColor = color.value;
+    }
+}
+
+
+grid.addEventListener('click', function(e){   
+    if(e.target == grid) return;
+    e.target.style.backgroundColor = color.value;
+});
 //----------------------------------------------
 
 
+//toggle controls
+const controls = document.querySelector('.controls');
+let isDisplayed = true;
+function controlsOn(e){
+    if (e.code == 'Escape'){
+        if (isDisplayed){
+            content.removeChild(controls);
+            isDisplayed = false;
+            grid.classList.toggle('slide-left');
+        } else{
+            content.insertBefore(controls, grid);
+            isDisplayed = true;
+            grid.classList.toggle('slide-right');
+        }
+    }
+}
+
+window.addEventListener('keydown', controlsOn);
+//-----------------------------------------------
 
