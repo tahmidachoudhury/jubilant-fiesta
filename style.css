@@ -27,15 +27,15 @@ body{
     flex-wrap: wrap; /* Wrap the items onto multiple lines */
     height: 500px;
     width: 500px;
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
 }
 
 .grid.slide-left {
-    transform: translateX(-50%);
+    transform: translateX(-75%);
 }
 
-.grid.slide-right {
-    transform: translateX(50%);
+.controls.slide-right {
+    transform: translateX(100%);
 }
 
 .grid-squares {
@@ -55,6 +55,7 @@ body{
     border: 2px solid black;
     border-radius: 1rem;
     padding: 20px;
+    transition: transform 1s ease;
 }
 
 p{

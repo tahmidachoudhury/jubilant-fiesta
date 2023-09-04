@@ -100,13 +100,13 @@ let isDisplayed = true;
 function controlsOn(e){
     if (e.code == 'Escape'){
         if (isDisplayed){
-            content.removeChild(controls);
-            isDisplayed = false;
             grid.classList.toggle('slide-left');
+            controls.classList.toggle('slide-right');
+            isDisplayed = false;
         } else{
-            content.insertBefore(controls, grid);
-            isDisplayed = true;
-            grid.classList.toggle('slide-right');
+            grid.classList.toggle('slide-left');
+            controls.classList.toggle('slide-right');
+            isDisplayed = true;         
         }
     }
 }
