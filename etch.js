@@ -115,6 +115,20 @@ window.addEventListener('keydown', controlsOn);
 //-----------------------------------------------
 
 //color options ---------------------------------
+const warmOptions = document.querySelector('.warm');
+warmOptions.addEventListener('click', function(e){
+    console.log(e.target);
+})
+
+
+const pencilOptions = document.querySelector('.pencil');
+warmOptions.addEventListener('click', function(e){
+    console.log(e.target);
+})
+
+
+
+//highlight
 let highlightOn = false;
 colorOptions = document.querySelector('.options');
 colorOptions.addEventListener('click', function(e){
