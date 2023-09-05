@@ -115,17 +115,27 @@ window.addEventListener('keydown', controlsOn);
 //-----------------------------------------------
 
 //color options ---------------------------------
+
 const warmOptions = document.querySelector('.warm');
-warmOptions.addEventListener('click', function(e){
-    console.log(e.target);
+warmOptions.addEventListener('click', function(){
+    //warmColors = []
+    //make array of #000000 hex values for 'warm'
+    //and randomize the value
+    console.log(color.value);
 })
 
 
 const pencilOptions = document.querySelector('.pencil');
-warmOptions.addEventListener('click', function(e){
-    console.log(e.target);
+pencilOptions.addEventListener('click', function(e){
+    //make array of different opacity of black for 'pencil'
+    //and randomize the value
+    //look at solution for help
+    console.log(color.value);
 })
 
+const randomOptions = document.querySelector('.random');
+
+const userOptions = document.querySelector('.user');
 
 
 //highlight
@@ -133,5 +143,21 @@ let highlightOn = false;
 colorOptions = document.querySelector('.options');
 colorOptions.addEventListener('click', function(e){
     if(e.target.classList.contains('button')) e.target.classList.add('highlight');  
-    //if(e.target.classList.length == 3) e.target.classList.remove('highlight');
+    if (e.target == warmOptions){
+        pencilOptions.classList.remove('highlight');
+        randomOptions.classList.remove('highlight');
+        userOptions.classList.remove('highlight');
+    } else if (e.target == pencilOptions){
+        warmOptions.classList.remove('highlight');
+        randomOptions.classList.remove('highlight');
+        userOptions.classList.remove('highlight');
+    } else if (e.target == randomOptions){
+        pencilOptions.classList.remove('highlight');
+        warmOptions.classList.remove('highlight');
+        userOptions.classList.remove('highlight');
+    } else if (e.target == userOptions){
+        warmOptions.classList.remove('highlight');
+        randomOptions.classList.remove('highlight');
+        pencilOptions.classList.remove('highlight');
+    }
 })
