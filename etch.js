@@ -161,3 +161,11 @@ colorOptions.addEventListener('click', function(e){
         pencilOptions.classList.remove('highlight');
     }
 })
+
+credTag = document.querySelector('.anchor');
+credTag.addEventListener('mouseenter', function(e){
+    e.target.classList.toggle('highlight');
+})
+credTag.addEventListener('mouseout', function(e){
+    e.target.classList.toggle('highlight');
+})

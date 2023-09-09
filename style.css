@@ -12,8 +12,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding-top: 200px;
-
+    height: 95vh;
 
 }
 
@@ -116,4 +115,17 @@ p{
     padding: 5px;
     color: grey;
     font-family: 'Lucida Console', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/*---footer---*/
+.cred{
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a{
+    color: white;
+    text-decoration: none;
 }
