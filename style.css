@@ -120,12 +120,20 @@ p{
 
 /*---footer---*/
 .cred{
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 a{
-    color: white;
     text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+a:hover{
+    text-decoration: underline;
 }
