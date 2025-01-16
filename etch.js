@@ -102,6 +102,18 @@ function fillSquare(e) {
   }
   if (randomDrawOn) {
     color.value = `#${genRanHex(6)}`
+  } else if (warmDrawnOn) {
+    const warmColors = [
+      "#ffb950",
+      "#ffad33",
+      "#ff931f",
+      "#ff7e33",
+      "#fa5e1f",
+      "#ec3f13",
+      "#b81702",
+    ]
+    const index = Math.floor(Math.random() * warmColors.length)
+    color.value = warmColors[index]
   }
 }
 
@@ -155,21 +167,13 @@ warmOptions.addEventListener("click", function () {
   pencilDrawOn = false
   userDrawOn = false
   randomDrawOn = false
-  const warmValues = [
-    "#ffb950",
-    "#ffad33",
-    "#ff931f",
-    "#ff7e33",
-    "#fa5e1f",
-    "#ec3f13",
-    "#b81702",
-  ]
   //make array of #000000 hex values for 'warm'
   //and randomize the value
 })
 
 const pencilOptions = document.querySelector(".pencil")
 pencilOptions.addEventListener("click", function (e) {
+  color.value = "#ffffff"
   warmDrawnOn = false
   pencilDrawOn = true
   userDrawOn = false
