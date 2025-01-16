@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>etch a sketch</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <script src="etch.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
+    <button id="theme">mode</button>
     <div class="content">
-        <div class="controls">
-            <div class="grid-size">
-                <p>Pick a grid-size:</p>
-                <input type="range" id="numOfBoxes" min="2" max="100" step="1" value="8" />
-                <p>Grid selected:</p>
-            </div>
-            <div class="color">
-                <p>Pick a pre-set</p>
-                <div class="options">
-                    <button class="button warm">warm</button>
-                    <button class="button pencil">pencil</button>
-                    <button class="button random">random</button>
-                    <button class="button user">you pick</button>                    
-                </div>
-
-                <input type="color" id="boxColor">
-            </div>
-            <div class="draw-toggle">
-                <p>click to draw</p>
-                <p>'esc' to toggle controls</p>
-            </div>
-            <button class="clear">clear board?</button>
+      <div class="controls">
+        <div class="grid-size">
+          <p>Pick a grid-size:</p>
+          <input
+            type="range"
+            id="numOfBoxes"
+            min="2"
+            max="100"
+            step="1"
+            value="8"
+          />
+          <p>Grid selected:</p>
         </div>
-        <div class="grid"></div>
+        <div class="color">
+          <p>Pick a pre-set</p>
+          <div class="options">
+            <button class="button warm">warm</button>
+            <button class="button pencil">pencil</button>
+            <button class="button random">random</button>
+            <button class="button user highlight">you pick</button>
+          </div>
+
+          <input type="color" id="boxColor" />
+        </div>
+        <div class="draw-toggle">
+          <p>click to draw</p>
+          <p>'esc' to toggle controls</p>
+        </div>
+        <button class="clear">clear board?</button>
+      </div>
+      <div class="grid"></div>
     </div>
-    <div class="cred"><a href="https://github.com/tahmidachoudhury">© tahmidachoudhury</a>|<a href="https://github.com/tahmidachoudhury/jubilant-fiesta">source code</a></div>
-    
-</body>
+    <div class="cred">
+      <a href="https://github.com/tahmidachoudhury">© tahmidachoudhury</a>|<a
+        href="https://github.com/tahmidachoudhury/jubilant-fiesta"
+        >source code</a
+      >
+    </div>
+  </body>
 </html>

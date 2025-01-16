@@ -8,7 +8,17 @@ const defaultSquares = 8
 let color = document.getElementById("boxColor")
 let drawingOn = false
 let randomDrawOn = false
+let warmDrawnOn = false
+let pencilDrawOn = false
+let userDrawOn = true
+
 displaygridSize.textContent = `${defaultSquares} x ${defaultSquares}`
+
+const toggleButton = document.getElementById("theme")
+
+toggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("darkmode")
+})
 
 function getSquareSize(sqrs) {
   const gridSize = sqrs * sqrs
@@ -22,6 +32,7 @@ function buildGrid(squares) {
     for (let col = 0; col < squares; col++) {
       gridElement = document.createElement("div")
       gridElement.classList.add("grid-squares")
+      gridElement.dataset.opacity = 0
       gridElement.style.height = `${getSquareSize(squares)}px`
       gridElement.style.width = `${getSquareSize(squares)}px`
       startDrawing(gridElement)
@@ -67,14 +78,27 @@ const genRanHex = (size) =>
     .map(() => Math.floor(Math.random() * 16).toString(16))
     .join("")
 
-function getRandomHex(hexList) {
-  const randomIndex = Math.floor(Math.random() * hexList.length)
-  return hexList[randomIndex]
+const drawWithPencil = (element) => {
+  let currentOpacity = parseFloat(element.dataset.opacity)
+  // Increment opacity, maxing out at 1
+  if (currentOpacity < 1) {
+    currentOpacity += 0.1
+    currentOpacity = Math.min(currentOpacity, 1) // Ensure it doesn't exceed 1
+  }
+
+  // Update the square's opacity
+  element.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity})`
+
+  // Save the updated opacity back to the data attribute
+  element.dataset.opacity = currentOpacity
 }
 
-function hover(e) {
+function fillSquare(e) {
   if (drawingOn) {
     e.target.style.backgroundColor = color.value
+    if (pencilDrawOn) {
+      drawWithPencil(e.target)
+    }
   }
   if (randomDrawOn) {
     color.value = `#${genRanHex(6)}`
@@ -82,7 +106,10 @@ function hover(e) {
 }
 
 function startDrawing(gSquare) {
-  gSquare.addEventListener("mouseenter", hover)
+  gSquare.addEventListener("mouseenter", fillSquare)
+  gSquare.addEventListener("click", () => {
+    gSquare.style.backgroundColor = color.value
+  })
   gSquare.addEventListener("mousedown", () => (drawingOn = true))
   gSquare.addEventListener("mouseup", () => (drawingOn = false))
   if (drawingOn) {
@@ -90,10 +117,11 @@ function startDrawing(gSquare) {
   }
 }
 
-grid.addEventListener("click", function (e) {
-  if (e.target == grid) return
-  e.target.style.backgroundColor = color.value
-})
+// grid.addEventListener("click", function (e) {
+//   if (e.target == grid) {
+//     e.target.style.backgroundColor = color.value
+//   }
+// })
 //----------------------------------------------
 
 //toggle controls
@@ -120,6 +148,9 @@ window.addEventListener("keydown", controlsOn)
 
 const warmOptions = document.querySelector(".warm")
 warmOptions.addEventListener("click", function () {
+  warmDrawnOn = true
+  pencilDrawOn = false
+  userDrawOn = false
   randomDrawOn = false
   const warmValues = [
     "#ffb950",
@@ -133,48 +164,55 @@ warmOptions.addEventListener("click", function () {
   colorChange(warmValues)
   //make array of #000000 hex values for 'warm'
   //and randomize the value
-  console.log(color.value)
 })
 
 const pencilOptions = document.querySelector(".pencil")
 pencilOptions.addEventListener("click", function (e) {
+  warmDrawnOn = false
+  pencilDrawOn = true
+  userDrawOn = false
   randomDrawOn = false
   //make array of different opacity of black for 'pencil'
   //and randomize the value
   //look at solution for help
-  console.log(color.value)
 })
 
 const randomOptions = document.querySelector(".random")
 randomOptions.addEventListener("click", function () {
+  warmDrawnOn = false
+  pencilDrawOn = false
+  userDrawOn = false
   randomDrawOn = true
-  const randomValues = ["#FF5733", "#33FF57", "#3357FF", "#F1C40F", "#8E44AD"]
-  color.value = getRandomHex(randomValues)
   //make array of #000000 hex values for 'warm'
   //and randomize the value
-  console.log(color.value)
 })
 
 const userOptions = document.querySelector(".user")
+userOptions.addEventListener("click", function () {
+  warmDrawnOn = false
+  pencilDrawOn = false
+  userDrawOn = true
+  randomDrawOn = false
+})
 
 //highlight
 let highlightOn = false
 colorOptions = document.querySelector(".options")
 colorOptions.addEventListener("click", function (e) {
   if (e.target.classList.contains("button")) e.target.classList.add("highlight")
-  if (e.target == warmOptions) {
+  if (warmDrawnOn) {
     pencilOptions.classList.remove("highlight")
     randomOptions.classList.remove("highlight")
     userOptions.classList.remove("highlight")
-  } else if (e.target == pencilOptions) {
+  } else if (pencilDrawOn) {
     warmOptions.classList.remove("highlight")
     randomOptions.classList.remove("highlight")
     userOptions.classList.remove("highlight")
-  } else if (e.target == randomOptions) {
+  } else if (randomDrawOn) {
     pencilOptions.classList.remove("highlight")
     warmOptions.classList.remove("highlight")
     userOptions.classList.remove("highlight")
-  } else if (e.target == userOptions) {
+  } else if (userDrawOn) {
     warmOptions.classList.remove("highlight")
     randomOptions.classList.remove("highlight")
     pencilOptions.classList.remove("highlight")
