@@ -4,7 +4,7 @@ const inputSize = document.getElementById("numOfBoxes")
 const displaySize = document.querySelector(".grid-size")
 const displaygridSize = document.createElement("p")
 displaySize.appendChild(displaygridSize)
-const defaultSquares = 8
+const defaultSquares = 20
 let color = document.getElementById("boxColor")
 let drawingOn = false
 let randomDrawOn = false
