@@ -110,7 +110,10 @@ function startDrawing(gSquare) {
   gSquare.addEventListener("click", () => {
     gSquare.style.backgroundColor = color.value
   })
-  gSquare.addEventListener("mousedown", () => (drawingOn = true))
+  gSquare.addEventListener("mousedown", () => {
+    gSquare.style.backgroundColor = color.value
+    drawingOn = true
+  })
   gSquare.addEventListener("mouseup", () => (drawingOn = false))
   if (drawingOn) {
     gSquare.style.backgroundColor = color.value
@@ -161,7 +164,6 @@ warmOptions.addEventListener("click", function () {
     "#ec3f13",
     "#b81702",
   ]
-  colorChange(warmValues)
   //make array of #000000 hex values for 'warm'
   //and randomize the value
 })
