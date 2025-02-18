@@ -70,4 +70,4 @@ _This pencil feature changes the opacity of the square from light to dark. Due t
 If you have any questions, suggestions, or feedback, feel free to reach out!
 
 - **Email:** [tahmidachoudhury@outlook.com](mailto:tahmidachoudhury@outlook.com)
-- **LinkedIn:** [Your Name](https://www.linkedin.com/in/tahmid-choudhury-a1a05a252)
+- **LinkedIn:** [Tahmid Choudhury](https://www.linkedin.com/in/tahmid-choudhury-a1a05a252)
